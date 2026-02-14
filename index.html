@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background: linear-gradient(180deg,#ff9ecb,#ff6fa5,#ff3f87);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+    padding:10px;
+}
+
+/* LOGIN BOX */
+#loginBox{
+    background:rgba(0,0,0,0.35);
+    padding:5vw 5vw;
+    border-radius:5vw;
+    box-shadow:0 0 5vw rgba(0,0,0,0.4);
+    backdrop-filter: blur(2vw);
+    width:90%;
+    max-width:400px;
+}
+
+.typing{
+    height:auto;
+    font-size:4vw;
+    opacity:0.8;
+    margin-top:2vw;
+}
+
+input{
+    padding:3vw;
+    border:none;
+    border-radius:3vw;
+    width:100%;
+    margin-top:3vw;
+    outline:none;
+    font-size:4vw;
+    text-align:center;
+}
+
+button{
+    margin-top:4vw;
+    padding:3vw;
+    width:100%;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff3f87;
+    font-weight:bold;
+    font-size:4vw;
+    cursor:pointer;
+}
+
+#error{color:#ffd1dc;margin-top:2vw}
+
+/* HEARTS */
+.heart{
+    position:fixed;width:4vw;height:4vw;background:red;
+    transform:rotate(45deg);
+    animation: floatUp linear infinite;
+    z-index:-1;
+}
+.heart::before,.heart::after{
+    content:'';position:absolute;width:4vw;height:4vw;background:red;border-radius:50%;
+}
+.heart::before{top:-2vw;left:0;}
+.heart::after{left:-2vw;top:0;}
+@keyframes floatUp{
+0%{transform:translateY(100vh) rotate(45deg);opacity:1;}
+100%{transform:translateY(-10vh) rotate(45deg);opacity:0;}
+}
+
+/* MAIN PAGE */
+#mainPage{
+    display:none;
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:95%;
+    max-width:700px;
+}
+
+.envelope{
+    width:18vw;height:12vw;background:white;margin:2vw;
+    display:inline-block;position:relative;cursor:pointer;border-radius:2vw;
+}
+.envelope:before{
+    content:'';position:absolute;top:0;left:0;
+    border-left:50% solid transparent;
+    border-right:50% solid transparent;
+    border-top:6vw solid #ff6fa5;
+}
+
+.loveMessage{
+    display:none;margin-top:3vw;font-size:5vw;
+    background:rgba(0,0,0,0.35);
+    padding:3vw;border-radius:2vw;
+}
+
+#nextBtn{
+    display:none;
+    margin-top:4vw;
+    padding:3vw 5vw;
+    font-size:5vw;
+}
+
+#poemPage {
+  display:none;
+  position:absolute;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+#credits {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  transform:translateY(100%);
+  animation: scrollUp 120s linear forwards;
+  line-height:1.5;
+  font-size:4vw;
+  text-align:center;
+}
+
+@keyframes scrollUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(-100%); }
+}
+
+.soft {
+  opacity:0.25;
+  font-size:3vw;
+  letter-spacing:1vw;
+}
+</style>
+
+</head>
+
+<body>
+
+<audio id="bgmusic" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="loginBox">
+<h2>💌 Enter My Heart</h2>
+<p>Only my princess knows this</p>
+<input id="password" type="password" placeholder="Our secret...">
+<button onclick="login()">Unlock Love</button>
+<div class="typing" id="thinking"></div>
+<p id="error"></p>
+</div>
+
+<div id="mainPage">
+<h1>Happy Valentine's My Love ❤️</h1>
+<h3>You are the best thing in my life</h3>
+
+<div class="envelope" onclick="openLetter(0)"></div>
+<div class="envelope" onclick="openLetter(1)"></div>
+<div class="envelope" onclick="openLetter(2)"></div>
+
+<div id="msg0" class="loveMessage">I thank God for you every single day. You changed my world forever.</div>
+<div id="msg1" class="loveMessage">No matter what happens, I choose you. Today, tomorrow, always.</div>
+<div id="msg2" class="loveMessage">Collins Loves His Princess — and he always will ❤️</div>
+
+<button id="nextBtn" onclick="showPoem()">Next ❤️</button>
+</div>
+
+<div id="poemPage">
+<div id="credits">
+<h1>If Love Had a Face</h1>
+<p>
+Hm where to start<br>
+You ever sit back and realise<br>
+God really went crazy when He made somebody?<br>
+That’s you.<br><br>
+
+Not just pretty.<br>
+Not just cute.<br>
+I’m talking dangerous type beautiful. <br>
+The kind that makes a man check himself <br>
+and say, “Yeah… I gotta move right.” <br><br>
+
+You don’t even know what you do to me. <br>
+It’s the way your heart juss stays soft <br>
+even after life tried to harden it. <br>
+The way you care too much. <br>
+The way you overthink. <br> 
+The way you feel everything deeply. <br>
+You’re not weak. <br>
+You’re rare. <br><br>
+
+And I’m glad I have you in my life, <br>
+loving you isn’t a phase. <br>
+It’s not for some time. <br>
+It’s not just feelings. <br>
+It’s intention. <br>
+It’s me waking up and choosing you. <br>
+It’s me praying for you when you don’t even know it. <br>
+It’s me seeing forever and not getting scared. <br><br>
+
+You’re my peace in human form and I mean it <br>
+I’d shout it everyday till my voice gone if that’s what it takes to believe it <br>
+My answered prayer that I didn’t even ask for properly. <br>
+And yeah… I know we not perfect. <br><br>
+
+We both stubborn sometimes. <br>
+We both got pride sometimes. <br>
+But even in our worst moments? <br>
+I still look at you like, <br>
+“That’s mine.” <br>
+Not in a possessive way. <br>
+In a grateful way. <br>
+Like God trusted me with something precious and I refuse to mishandle it. <br><br>
+
+If loving you was a risk, I’d take it again. <br>
+If choosing you meant fighting for us, <br>
+I’d be up with whoever every time. <br>
+You’re not just my Valentine. You’re my home. <br>
+And if one day the world gets heavy on you, <br>
+if your mind gets loud, if your heart feels tired come here. <br> 
+Because I’m not going anywhere. <br>
+You’re the kind of girl a nigga thanks God for quietly. <br>
+And I do. Every single day and chance I get. <br><br>
+
+<span class="soft">I love you Princess</span>
+</p>
+</div>
+</div>
+
+<script>
+let opened=[false,false,false];
+
+function login(){
+let pass=document.getElementById("password").value;
+let think=document.getElementById("thinking");
+
+think.innerText="Checking memories...";
+setTimeout(()=>{think.innerText="Searching heart...";},700);
+
+setTimeout(()=>{
+if(pass==="Mrs Munalula"){
+
+think.innerText="Identity confirmed ❤️";
+
+setTimeout(()=>{
+document.getElementById("loginBox").style.display="none";
+document.getElementById("mainPage").style.display="block";
+startHearts();
+
+let music=document.getElementById("bgmusic");
+music.volume=0;
+music.play();
+let v=0;
+let fade=setInterval(()=>{v+=0.02;music.volume=v;if(v>=0.4)clearInterval(fade)},150);
+
+},900);
+
+}else{
+think.innerText="";
+document.getElementById("error").innerText="Wrong Password Mama!😢";
+}
+},1500);
+}
+
+function startHearts(){
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},300);
+}
+
+function openLetter(num){
+document.getElementById("msg"+num).style.display="block";
+opened[num]=true;
+if(opened[0]&&opened[1]&&opened[2]){
+document.getElementById("nextBtn").style.display="inline-block";
+}
+}
+
+function showPoem(){
+document.getElementById("mainPage").style.display="none";
+document.getElementById("poemPage").style.display="block";
+}
+</script>
+
+</body>
+</html>
